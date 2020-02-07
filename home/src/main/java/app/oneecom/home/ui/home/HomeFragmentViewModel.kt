@@ -13,7 +13,6 @@ import app.oneecom.core.ui.CharacterDetailViewState
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-// todo integrate view model to hit api...
 class HomeFragmentViewModel
 @Inject constructor(
     @VisibleForTesting(otherwise = PRIVATE)

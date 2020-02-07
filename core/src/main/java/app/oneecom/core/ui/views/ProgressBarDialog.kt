@@ -72,7 +72,7 @@ class ProgressBarDialog(
      * @param messageRes Message resource identifier.
      * @see AlertDialog.dismiss
      */
-    fun dismissWithErrorMessage(@StringRes messageRes: Int) {
+    fun dismissWithMessage(@StringRes messageRes: Int) {
         if (!::viewBinding.isInitialized) {
             Timber.e("Cannot perform action dismissWithErrorMessage(), lateinit property viewBinding has not been initialized")
             return

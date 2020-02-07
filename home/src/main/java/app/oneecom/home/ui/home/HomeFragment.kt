@@ -6,12 +6,12 @@ import android.view.View
 import androidx.navigation.fragment.findNavController
 import app.oneecom.core.extentions.TAG
 import app.oneecom.core.extentions.observe
+import app.oneecom.core.network.responses.CharacterDetail
 import app.oneecom.core.ui.CharacterDetailViewState
 import app.oneecom.core.ui.CoreFragment
 import app.oneecom.core.ui.views.ProgressBarDialog
 import app.oneecom.home.R
 import app.oneecom.home.databinding.FragmentHomeBinding
-import app.oneecom.home.ui.home.adapter.HomeRvAdapter
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -43,8 +43,9 @@ class HomeFragment : CoreFragment<FragmentHomeBinding, HomeFragmentViewModel>(
 
     override fun onInitDataBinding() {
         context ?: return
-        viewBinding.rvHome.adapter = HomeRvAdapter(context!!)
+//        viewBinding.rvHome.adapter = HomeRvAdapter(context!!)
         observe(viewModel.state, ::onViewStateChange)
+        observe(viewModel.data, ::onDataChange)
         viewModel.loadCharacterDetail(1011334L)
     }
 
@@ -60,19 +61,17 @@ class HomeFragment : CoreFragment<FragmentHomeBinding, HomeFragmentViewModel>(
     private fun onViewStateChange(viewState: CharacterDetailViewState) {
         when (viewState) {
             is CharacterDetailViewState.Loading ->
-                progressDialog.show(R.string.character_detail_dialog_loading_text)
+                progressDialog.show(R.string.loading_details)
             is CharacterDetailViewState.Error ->
-                progressDialog.dismissWithErrorMessage(R.string.character_detail_dialog_error_text)
-//            is CharacterDetailViewState.AddedToFavorite ->
-//                Snackbar.make(
-//                    requireView(),
-//                    R.string.character_detail_added_to_favorite_message,
-//                    Snackbar.LENGTH_LONG
-//                ).show()
+                progressDialog.dismissWithMessage(R.string.error_on_obtain_detail_please_try_later)
             is CharacterDetailViewState.Dismiss ->
                 findNavController().navigateUp()
             else -> progressDialog.dismiss()
         }
+    }
+
+    private fun onDataChange(characterDetail: CharacterDetail) {
+        progressDialog.dismissWithMessage(R.string.success)
     }
 
 }
