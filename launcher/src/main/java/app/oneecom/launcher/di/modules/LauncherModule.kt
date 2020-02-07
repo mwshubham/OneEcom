@@ -1,14 +1,16 @@
 package app.oneecom.launcher.di.modules
 
-import android.content.Context
-import app.oneecom.core.di.scopes.ActivityScope
+import androidx.lifecycle.ViewModel
+import app.oneecom.core.di.scopes.ViewModelKey
+import app.oneecom.launcher.ui.LauncherViewModel
+import dagger.Binds
 import dagger.Module
-import dagger.Provides
+import dagger.multibindings.IntoMap
 
 @Module
-class LauncherModule {
-
-    @Provides
-    @ActivityScope
-    fun provideString(appContext: Context): String = this::class.java.simpleName
+abstract class LauncherModule {
+    @Binds
+    @IntoMap
+    @ViewModelKey(LauncherViewModel::class)
+    internal abstract fun bindLauncherViewModel(viewModel: LauncherViewModel): ViewModel
 }
