@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">OneEcom</string>
+
+    <!--todo for testing-->
+    <string name="character_detail_dialog_loading_text">Loading detail…</string>
+    <string name="character_detail_dialog_error_text">Error on obtain detail, please try later.</string>
+</resources>

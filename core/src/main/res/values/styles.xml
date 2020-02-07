@@ -1,0 +1,75 @@
+<resources>
+
+    <!--Refer to: https://developer.android.com/guide/topics/ui/look-and-feel/themes-->
+    <style name="BaseAppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+
+        <!--Refer to: https://medium.com/over-engineering/setting-up-a-material-components-theme-for-android-fbf7774da739-->
+
+        <!--        colorPrimary: The primary brand color of your app, used most predominantly in theming-->
+        <!--        colorPrimaryVariant: A lighter/darker variant of your primary brand color, used sparingly in theming-->
+        <!--        colorOnPrimary: The color used for elements displayed on top of your primary colors (eg. Text and icons, often white or semi-transparent black depending on accessibility)-->
+        <!--        colorSecondary: The secondary brand color of your app, used mostly as an accent for certain widgets that need to stand out-->
+        <!--        colorSecondaryVariant: A lighter/darker variant of your secondary brand color, used sparingly in theming-->
+        <!--        colorOnSecondary: The color used for elements displayed on top of your secondary colors-->
+        <!--        colorError: The color used for errors (often a shade of red)-->
+        <!--        colorOnError: The color used for elements displayed on top of your error color-->
+        <!--        colorSurface: The color used for surfaces (i.e. Material “sheets”)-->
+        <!--        colorOnSurface: The color used for elements displayed on top of your surface color-->
+        <!--        android:colorBackground: The color behind all other screen content-->
+        <!--        colorOnBackground: The color used for elements displayed on top of your background color-->
+
+        <!--        <item name="colorPrimary">#212121</item>-->
+        <!--        <item name="colorPrimaryVariant">#000000</item>-->
+        <!--        <item name="colorOnPrimary">#FFFFFF</item>-->
+        <!--        <item name="colorSecondary">#2962FF</item>-->
+        <!--        <item name="colorSecondaryVariant">#0039CB</item>-->
+        <!--        <item name="colorOnSecondary">#FFFFFF</item>-->
+        <!--        <item name="colorError">#F44336</item>-->
+        <!--        <item name="colorOnError">#FFFFFF</item>-->
+        <!--        <item name="colorSurface">#FFFFFF</item>-->
+        <!--        <item name="colorOnSurface">#212121</item>-->
+        <!--        <item name="android:colorBackground">@color/background</item>-->
+        <!--        <item name="colorOnBackground">#212121</item>-->
+
+        <!--Styling Theme-->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@android:color/white</item>
+        <item name="android:fontFamily">@font/roboto</item>
+
+        <!--Styling Text-->
+        <item name="android:textViewStyle">@style/BaseTextViewStyle</item>
+
+        <!--Styling Widget(s)-->
+
+        <!--Styling Button-->
+        <item name="buttonStyle">@style/BaseButtonStyle</item>
+        <item name="materialButtonStyle">@style/BaseButtonStyle</item>
+    </style>
+
+    <style name="BaseAppTheme.AppTheme" />
+
+    <style name="BaseAppTheme.FullScreenTheme">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="BaseTextViewStyle" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/colorTextPrimary</item>
+        <item name="android:textColorSecondary">@color/colorTextSecondary</item>
+    </style>
+
+    <style name="BaseButtonStyle" parent="Widget.MaterialComponents.Button">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColorSecondary">@color/colorTextSecondary</item>
+    </style>
+
+    <style name="CustomProgressDialog" parent="android:Theme.Holo.Light.Dialog.NoActionBar">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+</resources>

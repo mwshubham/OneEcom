@@ -1,0 +1,2 @@
+include ':app', ':home', ':launcher', ':core', ':navigation', ':localization'
+rootProject.name='OpenEcom'

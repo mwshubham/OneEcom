@@ -1,0 +1,2 @@
+~ Use Tools attributes as much as possible https://developer.android.com/studio/write/tool-attributes
+This is done so that once can see the any page design or component without dependent on running the application

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--Theme Colors-->
+    <color name="colorPrimary">#2196F3</color>
+    <color name="colorLighPrimary">#BBDEFB</color>
+    <color name="colorPrimaryDark">#1976D2</color>
+    <color name="colorAccent">#FF9800</color>
+
+    <!--Text Colors-->
+    <color name="colorTextPrimary">#212121</color>
+    <color name="colorTextSecondary">#757575</color>
+
+    <!--Divider Colors-->
+    <color name="colorDivider">#BDBDBD</color>
+
+    <!--OverLay Color-->
+    <color name="black_overlay">#66000000</color>
+</resources>
