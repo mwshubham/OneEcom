@@ -1,7 +1,5 @@
 package app.oneecom.home.ui.categories
 
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import app.oneecom.core.extentions.TAG
 import app.oneecom.core.ui.CoreFragment
 import app.oneecom.home.R
@@ -17,9 +15,6 @@ class CategoriesFragment : CoreFragment<FragmentCategoriesBinding, CategoriesVie
     }
 
     override fun onInitDataBinding() {
-        viewModel = ViewModelProvider(this).get(CategoriesViewModel::class.java)
-        viewModel.text.observe(this, Observer {
-            viewBinding.textCategories.text = it
-        })
+        viewBinding.viewModel = viewModel
     }
 }
