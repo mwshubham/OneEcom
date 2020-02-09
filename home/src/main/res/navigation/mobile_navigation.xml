@@ -7,25 +7,25 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="app.oneecom.home.ui.home.HomeFragment"
+        android:name="app.oneecom.home.ui.HomeFragment"
         android:label="@string/title_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_categories"
-        android:name="app.oneecom.home.ui.categories.CategoriesFragment"
+        android:name="app.oneecom.categories.ui.CategoriesFragment"
         android:label="@string/title_categories"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_cart"
-        android:name="app.oneecom.home.ui.cart.CartFragment"
+        android:name="app.oneecom.cart.ui.CartFragment"
         android:label="@string/title_cart"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="app.oneecom.home.ui.profile.ProfileFragment"
+        android:name="app.oneecom.profile.ui.ProfileFragment"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_home" />
 

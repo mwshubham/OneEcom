@@ -1,2 +1,2 @@
-include ':app', ':home', ':launcher', ':core', ':navigation', ':localization'
+include ':app', ':home', ':launcher', ':core', ':navigation', ':localization', ':categories', ':cart', ':profile'
 rootProject.name='OpenEcom'

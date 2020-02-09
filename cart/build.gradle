@@ -42,9 +42,6 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    api project(':categories')
-    api project(':cart')
-    api project(':profile')
     implementation project(':core')
 
     // Dagger-Android
