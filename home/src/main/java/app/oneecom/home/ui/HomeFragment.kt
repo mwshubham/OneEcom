@@ -1,5 +1,8 @@
 package app.oneecom.home.ui
 
+import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
 import androidx.navigation.fragment.findNavController
 import app.oneecom.core.extentions.TAG
 import app.oneecom.core.extentions.observe
@@ -15,7 +18,13 @@ class HomeFragment : CoreFragment<FragmentHomeBinding, HomeFragmentViewModel>(
 ) {
     override val logTAG: String = TAG
 
+    @Suppress("MemberVisibilityCanBePrivate")
     lateinit var progressDialog: ProgressBarDialog
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
 
     override fun onInitDependencyInjection() {
 
@@ -29,6 +38,11 @@ class HomeFragment : CoreFragment<FragmentHomeBinding, HomeFragmentViewModel>(
         observe(viewModel.state, ::onViewStateChange)
         observe(viewModel.data, ::onDataChange)
         viewModel.loadCharacterDetail(1011334L)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_fragment_home, menu)
+        super.onCreateOptionsMenu(menu, inflater)
     }
 
     // ============================================================================================

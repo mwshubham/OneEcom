@@ -1,5 +1,8 @@
 package app.oneecom.cart.ui
 
+import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
 import app.oneecom.cart.R
 import app.oneecom.cart.databinding.FragmentCartBinding
 import app.oneecom.core.extentions.TAG
@@ -10,6 +13,16 @@ class CartFragment : CoreFragment<FragmentCartBinding, CartViewModel>(
 ) {
 
     override val logTAG: String = TAG
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_fragment_cart, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
 
     override fun onInitDependencyInjection() {
 
