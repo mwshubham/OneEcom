@@ -1,13 +1,12 @@
 package app.oneecom.core
 
 import android.app.Application
-import androidx.multidex.MultiDexApplication
 import app.oneecom.core.logging.CoreDebugTree
 import com.facebook.stetho.Stetho
 import timber.log.Timber
 
 @Suppress("unused")
-open class CoreApplication : MultiDexApplication() {
+open class CoreApplication : Application() {
 
     companion object {
         lateinit var instance: Application
