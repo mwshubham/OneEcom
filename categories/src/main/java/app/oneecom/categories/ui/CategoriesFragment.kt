@@ -6,6 +6,8 @@ import android.view.MenuInflater
 import androidx.navigation.fragment.findNavController
 import app.oneecom.categories.R
 import app.oneecom.categories.databinding.FragmentCategoriesBinding
+import app.oneecom.categories.ui.adapter.CategoriesMainAdapter
+import app.oneecom.categories.ui.viewmodels.CategoriesViewModel
 import app.oneecom.core.extentions.TAG
 import app.oneecom.core.extentions.observe
 import app.oneecom.core.network.responses.Category
@@ -61,13 +63,14 @@ class CategoriesFragment : CoreFragment<FragmentCategoriesBinding, CategoriesVie
             is GenericViewState.Error ->
                 progressDialog.dismissWithMessage(R.string.error_on_obtain_detail_please_try_later)
             is GenericViewState.Dismiss ->
-                findNavController().navigateUp()
-            else -> progressDialog.dismiss()
+                progressDialog.dismiss()
+            else -> findNavController().navigateUp()
         }
     }
 
     private fun onDataChange(@Suppress("UNUSED_PARAMETER") categoryList: List<Category>) {
-        progressDialog.dismissWithMessage(R.string.success)
+        viewBinding.rvCategoriesMain.adapter =
+            CategoriesMainAdapter(context!!, categoryList)
     }
 
 }

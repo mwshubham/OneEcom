@@ -1,4 +1,4 @@
-package app.oneecom.categories.ui
+package app.oneecom.categories.ui.viewmodels
 
 import androidx.annotation.VisibleForTesting
 import androidx.annotation.VisibleForTesting.PRIVATE
@@ -37,6 +37,7 @@ class CategoriesViewModel
             try {
                 val result = githubRepository.getCategories()
                 _data.postValue(result.data.results)
+                _state.postValue(GenericViewState.Dismiss)
             } catch (e: Exception) {
                 e.printStackTrace()
                 _state.postValue(GenericViewState.Error)
