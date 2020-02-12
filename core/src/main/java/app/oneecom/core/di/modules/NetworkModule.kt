@@ -17,8 +17,8 @@
 package app.oneecom.core.di.modules
 
 import app.oneecom.core.BuildConfig
-import app.oneecom.core.network.repositiories.MarvelRepository
-import app.oneecom.core.network.services.MarvelService
+import app.oneecom.core.network.repositiories.GithubRepository
+import app.oneecom.core.network.services.GithubService
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.squareup.moshi.Moshi
 import dagger.Module
@@ -30,8 +30,6 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 import javax.inject.Singleton
 
 /**
- * Class that contributes to the object graph [CoreComponent].
- *
  * @see Module
  */
 @Module
@@ -76,7 +74,7 @@ class NetworkModule {
      */
     @Singleton
     @Provides
-    fun provideRetrofitBuilder(okHttpClient: OkHttpClient, moshi: Moshi) =
+    fun provideRetrofitBuilder(okHttpClient: OkHttpClient, moshi: Moshi): Retrofit =
         Retrofit.Builder()
             .client(okHttpClient)
             .baseUrl(BuildConfig.API_BASE_URL)
@@ -84,23 +82,23 @@ class NetworkModule {
             .build()
 
     /**
-     * Create a provider method binding for [MarvelService].
+     * Create a provider method binding for [GithubService].
      *
-     * @return Instance of marvel service.
+     * @return Instance of github service.
      * @see Provides
      */
     @Singleton
     @Provides
-    fun provideBaseService(retrofit: Retrofit) = retrofit
-        .create(MarvelService::class.java)
+    fun provideGithubservice(retrofit: Retrofit): GithubService = retrofit
+        .create(GithubService::class.java)
 
     /**
-     * Create a provider method binding for [MarvelRepository].
+     * Create a provider method binding for [GithubRepository].
      *
-     * @return Instance of marvel repository.
+     * @return Instance of github repository.
      * @see Provides
      */
     @Singleton
     @Provides
-    fun provideMarvelRepository(service: MarvelService) = MarvelRepository(service)
+    fun provideGithubRepository(service: GithubService) = GithubRepository(service)
 }

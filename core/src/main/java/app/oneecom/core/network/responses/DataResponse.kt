@@ -26,9 +26,9 @@ package app.oneecom.core.network.responses
  * @param results The list of [T] returned by the call.
  */
 data class DataResponse<T>(
-    val offset: Int,
-    val limit: Int,
-    val total: Int,
-    val count: Int,
+    val offset: Int?,
+    val limit: Int?,
+    val total: Int?,
+    val count: Int?,
     val results: List<T>
 )

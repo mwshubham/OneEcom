@@ -17,11 +17,12 @@
 package app.oneecom.core.network.responses
 
 /**
- * Model view to display on the screen [CharacterDetailFragment].
+ * Github API base thumbnail network response.
+ *
+ * @param path The directory path of to the image.
+ * @param extension The file extension for the image.
  */
-data class CharacterDetail(
-    val id: Long,
-    val name: String,
-    val description: String,
-    val imageUrl: String
+data class BaseThumbnailResponse(
+    val path: String,
+    val extension: String
 )

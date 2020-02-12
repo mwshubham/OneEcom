@@ -20,8 +20,8 @@ import androidx.annotation.VisibleForTesting
 import androidx.annotation.VisibleForTesting.PRIVATE
 import app.oneecom.core.extentions.toMD5
 import app.oneecom.core.network.responses.BaseResponse
-import app.oneecom.core.network.responses.CharacterResponse
-import app.oneecom.core.network.services.MarvelService
+import app.oneecom.core.network.responses.Category
+import app.oneecom.core.network.services.GithubService
 
 // need to pick them from [local.properties] file
 private const val API_PUBLIC_KEY = "daab098c007865963e16cbb4f9cef8aa"
@@ -29,39 +29,38 @@ private const val API_PRIVATE_KEY = "20b299205a9c6bca48daf7bfd3bed4b8a818e66b"
 private const val HASH_FORMAT = "%s%s%s"
 
 /**
- * Repository module for handling marvel API network operations [MarvelService].
+ * Repository module for handling marvel API network operations [GithubService].
  */
-class MarvelRepository(
+class GithubRepository(
     @VisibleForTesting(otherwise = PRIVATE)
-    internal val service: MarvelService
+    internal val service: GithubService
 ) {
 
     /**
      * Get all info of Marvel character.
      *
-     * @param id A single character id.
      * @return Response for single character resource.
      */
-    suspend fun getCharacter(id: Long): BaseResponse<CharacterResponse> {
-        val timestamp = System.currentTimeMillis().toString()
-        return service.getCharacter(
-            id = id,
-            apiKey = API_PUBLIC_KEY,
-            hash = generateApiHash(timestamp),
-            timestamp = timestamp
-        )
-    }
+//    suspend fun getCharacter(id: Long): BaseResponse<CharacterResponse> {
+//        val timestamp = System.currentTimeMillis().toString()
+//        return service.getCharacter(
+//            id = id,
+//            apiKey = API_PUBLIC_KEY,
+//            hash = generateApiHash(timestamp),
+//            timestamp = timestamp
+//        )
+//    }
 
     /**
-     * Get all Marvel characters by paged.
+     * Get all Categories by paged.
      *
      * @param offset Skip the specified number of resources in the result set.
      * @param limit Limit the result set to the specified number of resources.
      * @return Response for comic characters resource.
      */
-    suspend fun getCharacters(offset: Int, limit: Int): BaseResponse<CharacterResponse> {
+    suspend fun getCategories(offset: Int = 0, limit: Int = 0): BaseResponse<Category> {
         val timestamp = System.currentTimeMillis().toString()
-        return service.getCharacters(
+        return service.getCategories(
             apiKey = API_PUBLIC_KEY,
             hash = generateApiHash(timestamp),
             timestamp = timestamp,
