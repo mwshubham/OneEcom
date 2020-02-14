@@ -1,11 +1,12 @@
 package app.oneecom.categories.ui.viewholders
 
-import androidx.recyclerview.widget.RecyclerView
 import app.oneecom.categories.databinding.ItemCategoryMainBinding
 import app.oneecom.core.network.responses.Category
+import com.thoughtbot.expandablerecyclerview.viewholders.GroupViewHolder
 
 class ItemCategoriesMainVH(private val binding: ItemCategoryMainBinding) :
-    RecyclerView.ViewHolder(binding.root) {
+    GroupViewHolder(binding.root) {
+
     fun bind(category: Category) {
         binding.category = category
     }

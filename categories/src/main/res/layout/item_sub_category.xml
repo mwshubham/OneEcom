@@ -13,6 +13,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="@dimen/dimen_categories_main_width"
         android:layout_height="wrap_content"
+        android:background="#F4F4F5"
         android:paddingStart="16dp"
         android:paddingTop="16dp"
         android:paddingEnd="8dp"
@@ -25,23 +26,10 @@
             android:ellipsize="end"
             android:maxLines="2"
             android:text="@{category.name}"
-            app:layout_constraintEnd_toStartOf="@id/iv_expand"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Beauty &amp; Personal Care" />
-
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/iv_expand"
-            android:layout_width="12dp"
-            android:layout_height="12dp"
-            app:invisible="@{category.showExpandIcon()}"
-            android:layout_marginStart="16dp"
-            app:layout_constraintBottom_toBottomOf="@id/tv_name"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/tv_name"
-            app:layout_constraintTop_toTopOf="@id/tv_name"
-            app:srcCompat="@drawable/ic_add_black_24dp"
-            app:tint="#ccc" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
