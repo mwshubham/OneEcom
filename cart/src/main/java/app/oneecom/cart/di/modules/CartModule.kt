@@ -1,8 +1,8 @@
 package app.oneecom.categories.di.modules
 
 import androidx.lifecycle.ViewModel
-import app.oneecom.cart.ui.CartFragment
-import app.oneecom.cart.ui.CartViewModel
+import app.oneecom.cart.ui.fragments.CartFragment
+import app.oneecom.cart.ui.viewmodels.CartViewModel
 import app.oneecom.core.di.scopes.ViewModelKey
 import dagger.Binds
 import dagger.Module

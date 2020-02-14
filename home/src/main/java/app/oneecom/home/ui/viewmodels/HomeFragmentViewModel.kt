@@ -1,4 +1,4 @@
-package app.oneecom.home.ui
+package app.oneecom.home.ui.viewmodels
 
 import androidx.lifecycle.ViewModel
 import app.oneecom.core.constants.CoreLoggingConstants

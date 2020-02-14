@@ -2,8 +2,8 @@ package app.oneecom.categories.di.modules
 
 import androidx.lifecycle.ViewModel
 import app.oneecom.core.di.scopes.ViewModelKey
-import app.oneecom.profile.ui.ProfileFragment
-import app.oneecom.profile.ui.ProfileViewModel
+import app.oneecom.profile.ui.fragments.ProfileFragment
+import app.oneecom.profile.ui.viewmodels.ProfileViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.android.ContributesAndroidInjector

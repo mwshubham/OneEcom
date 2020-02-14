@@ -1,4 +1,4 @@
-package app.oneecom.categories.ui
+package app.oneecom.categories.ui.fragments
 
 import android.os.Bundle
 import android.view.Menu
@@ -6,7 +6,7 @@ import android.view.MenuInflater
 import androidx.navigation.fragment.findNavController
 import app.oneecom.categories.R
 import app.oneecom.categories.databinding.FragmentCategoriesBinding
-import app.oneecom.categories.ui.adapter.CategoriesMainAdapter
+import app.oneecom.categories.ui.adapters.CategoriesMainAdapter
 import app.oneecom.categories.ui.viewmodels.CategoriesViewModel
 import app.oneecom.core.extentions.TAG
 import app.oneecom.core.extentions.observe

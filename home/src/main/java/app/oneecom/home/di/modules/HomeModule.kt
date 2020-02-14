@@ -2,8 +2,8 @@ package app.oneecom.home.di.modules
 
 import androidx.lifecycle.ViewModel
 import app.oneecom.core.di.scopes.ViewModelKey
-import app.oneecom.home.ui.HomeActivityViewModel
-import app.oneecom.home.ui.HomeFragment
+import app.oneecom.home.ui.fragments.HomeFragment
+import app.oneecom.home.ui.viewmodels.HomeActivityViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.android.ContributesAndroidInjector

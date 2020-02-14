@@ -1,4 +1,4 @@
-package app.oneecom.home.ui.viewholder
+package app.oneecom.home.ui.viewmodels
 
 //class ItemHomeBannerOneVM : ViewModel() {
 //

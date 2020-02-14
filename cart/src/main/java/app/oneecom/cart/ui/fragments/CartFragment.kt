@@ -1,10 +1,11 @@
-package app.oneecom.cart.ui
+package app.oneecom.cart.ui.fragments
 
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import app.oneecom.cart.R
 import app.oneecom.cart.databinding.FragmentCartBinding
+import app.oneecom.cart.ui.viewmodels.CartViewModel
 import app.oneecom.core.extentions.TAG
 import app.oneecom.core.ui.CoreFragment
 

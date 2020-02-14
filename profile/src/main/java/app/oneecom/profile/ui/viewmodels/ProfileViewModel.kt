@@ -1,4 +1,4 @@
-package app.oneecom.profile.ui
+package app.oneecom.profile.ui.viewmodels
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

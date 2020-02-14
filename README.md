@@ -18,7 +18,6 @@ Sample Action name: action.oneecom.home.open
 This is a simple convention used to look for the reference with ease.
 
 
-
 ## Important Github project
 
 https://github.com/iammert/AndroidArchitecture

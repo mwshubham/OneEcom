@@ -2,7 +2,7 @@ package app.oneecom.home.di.modules
 
 import androidx.lifecycle.ViewModel
 import app.oneecom.core.di.scopes.ViewModelKey
-import app.oneecom.home.ui.HomeFragmentViewModel
+import app.oneecom.home.ui.viewmodels.HomeFragmentViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap

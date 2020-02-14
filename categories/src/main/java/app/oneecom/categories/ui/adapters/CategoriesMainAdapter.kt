@@ -1,16 +1,18 @@
-package app.oneecom.home.ui.adapter
+package app.oneecom.categories.ui.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
+import app.oneecom.categories.R
+import app.oneecom.categories.ui.viewholders.ItemCategoriesMainVH
 import app.oneecom.core.constants.CoreLoggingConstants
-import app.oneecom.home.R
-import app.oneecom.home.ui.viewholder.ItemHomeBannerOneVH
+import app.oneecom.core.network.responses.Category
 import timber.log.Timber
 
-class HomeRvAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class CategoriesMainAdapter(context: Context, private val categoryList: List<Category>) :
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val inflater: LayoutInflater = LayoutInflater.from(context)
 
     init {
@@ -18,22 +20,21 @@ class HomeRvAdapter(context: Context) : RecyclerView.Adapter<RecyclerView.ViewHo
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return ItemHomeBannerOneVH(
+        return ItemCategoriesMainVH(
             DataBindingUtil.inflate(
                 inflater,
-                R.layout.item_home_banner_one,
+                R.layout.item_category_main,
                 parent,
                 false
             )
         )
     }
 
-    override fun getItemCount() = 10
+    override fun getItemCount() = categoryList.size
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
-            is ItemHomeBannerOneVH -> holder.bind()
+            is ItemCategoriesMainVH -> holder.bind(categoryList[position])
         }
     }
-
 }

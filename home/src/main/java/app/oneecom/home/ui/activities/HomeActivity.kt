@@ -1,4 +1,4 @@
-package app.oneecom.home
+package app.oneecom.home.ui.activities
 
 import android.os.Bundle
 import androidx.navigation.findNavController
@@ -7,8 +7,9 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import app.oneecom.core.extentions.TAG
 import app.oneecom.core.ui.CoreActivity
+import app.oneecom.home.R
 import app.oneecom.home.databinding.ActivityHomeBinding
-import app.oneecom.home.ui.HomeActivityViewModel
+import app.oneecom.home.ui.viewmodels.HomeActivityViewModel
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class HomeActivity :

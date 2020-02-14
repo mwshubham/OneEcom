@@ -1,7 +1,7 @@
 package app.oneecom.categories.di.modules
 
 import androidx.lifecycle.ViewModel
-import app.oneecom.categories.ui.CategoriesFragment
+import app.oneecom.categories.ui.fragments.CategoriesFragment
 import app.oneecom.categories.ui.viewmodels.CategoriesViewModel
 import app.oneecom.core.di.scopes.ViewModelKey
 import dagger.Binds

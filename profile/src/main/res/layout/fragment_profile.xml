@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="app.oneecom.profile.ui.ProfileViewModel" />
+            type="app.oneecom.profile.ui.viewmodels.ProfileViewModel" />
 
     </data>
 
