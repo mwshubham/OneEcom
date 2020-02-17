@@ -7,13 +7,19 @@ import androidx.databinding.DataBindingUtil
 import app.oneecom.categories.R
 import app.oneecom.categories.ui.viewholders.ItemCategoriesMainVH
 import app.oneecom.categories.ui.viewholders.ItemSubCategoriesVH
+import app.oneecom.categories.ui.viewmodels.CategoriesViewModel
 import app.oneecom.core.constants.CoreLoggingConstants
 import app.oneecom.core.network.responses.Category
 import com.thoughtbot.expandablerecyclerview.ExpandableRecyclerViewAdapter
 import com.thoughtbot.expandablerecyclerview.models.ExpandableGroup
 import timber.log.Timber
 
-class CategoriesMainAdapter(context: Context, categoryList: List<Category>) :
+class CategoriesMainAdapter(
+    context: Context,
+    private val viewModel: CategoriesViewModel,
+    categoryList: List<Category>,
+    private val listener: (Category, Int, Int) -> Unit
+) :
     ExpandableRecyclerViewAdapter<ItemCategoriesMainVH, ItemSubCategoriesVH>(categoryList) {
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
@@ -58,7 +64,7 @@ class CategoriesMainAdapter(context: Context, categoryList: List<Category>) :
         group: ExpandableGroup<*>,
         childIndex: Int
     ) {
-        holder.bind(group.items[childIndex] as Category)
+        holder.bind(group, flatPosition, childIndex, listener, viewModel)
     }
 }
 

@@ -28,6 +28,18 @@ class CategoriesViewModel
     val data: LiveData<List<Category>>
         get() = _data
 
+    private val _selectedCategoryName = MutableLiveData<String>()
+    val selectedCategoryName: LiveData<String>
+        get() = _selectedCategoryName
+
+    private val _selectedSubCategoryName = MutableLiveData<String>()
+    val selectedSubCategoryName: LiveData<String>
+        get() = _selectedSubCategoryName
+
+    init {
+        Timber.i(CoreLoggingConstants.LOGGING_PLACEHOLDER)
+    }
+
     /**
      * Fetch Categories.
      */
@@ -45,8 +57,12 @@ class CategoriesViewModel
         }
     }
 
-    init {
-        Timber.i(CoreLoggingConstants.LOGGING_PLACEHOLDER)
+    fun updateSelectedCategoryName(categoryName: String) {
+        _selectedCategoryName.value = categoryName
+    }
+
+    fun updateSelectedSubCategoryName(subCategoryName: String) {
+        _selectedSubCategoryName.value = subCategoryName
     }
 
     override fun onCleared() {

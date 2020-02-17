@@ -8,6 +8,7 @@
         <variable
             name="viewModel"
             type="app.oneecom.categories.ui.viewmodels.CategoriesViewModel" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,9 +21,50 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0"
             tools:listitem="@layout/item_category_main" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_main_category_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@{viewModel.selectedCategoryName}"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/rv_categories_main"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="WOMEN's" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_sub_category_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.selectedSubCategoryName}"
+            android:textSize="16sp"
+            app:fontFamily="@font/roboto_bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/tv_main_category_name"
+            app:layout_constraintTop_toBottomOf="@id/tv_main_category_name"
+            tools:text="Beauty &amp; Personal Care" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_categories_sub_sub_category"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/rv_categories_main"
+            app:layout_constraintTop_toBottomOf="@id/tv_sub_category_name"
+            app:layout_constraintVertical_bias="0"
+            app:spanCount="2"
+            tools:listitem="@layout/item_sub_sub_category" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

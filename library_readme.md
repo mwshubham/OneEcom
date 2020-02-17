@@ -10,3 +10,4 @@ Retrofit (https://github.com/square/retrofit): Type-safe HTTP client for Android
 Stetho (https://github.com/facebook/stetho): Stetho is a debug bridge for Android applications, enabling the powerful Chrome Developer Tools and much more.
 logging-interceptor (https://github.com/square/okhttp/tree/master/okhttp-logging-interceptor): An OkHttp interceptor which logs HTTP request and response data.
 expandable-recycler-view (https://github.com/thoughtbot/expandable-recycler-view): Custom Android RecyclerViewAdapters that collapse and expand.
+CircleImageView (https://github.com/hdodenhof/CircleImageView): A circular ImageView for Android.

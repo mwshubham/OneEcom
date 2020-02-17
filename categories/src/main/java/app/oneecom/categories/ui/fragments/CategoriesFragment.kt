@@ -23,6 +23,7 @@ class CategoriesFragment : CoreFragment<FragmentCategoriesBinding, CategoriesVie
 
     @Suppress("MemberVisibilityCanBePrivate")
     lateinit var progressDialog: ProgressBarDialog
+    private lateinit var categoryList: List<Category>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,6 +43,7 @@ class CategoriesFragment : CoreFragment<FragmentCategoriesBinding, CategoriesVie
 //        viewBinding.rvHome.adapter = HomeRvAdapter(context!!)
 
         progressDialog = ProgressBarDialog(context!!)
+        viewBinding.viewModel = viewModel
         observe(viewModel.state, ::onViewStateChange)
         observe(viewModel.data, ::onDataChange)
         viewModel.getCategories()
@@ -69,8 +71,16 @@ class CategoriesFragment : CoreFragment<FragmentCategoriesBinding, CategoriesVie
     }
 
     private fun onDataChange(@Suppress("UNUSED_PARAMETER") categoryList: List<Category>) {
+        this.categoryList = categoryList
+
         viewBinding.rvCategoriesMain.adapter =
-            CategoriesMainAdapter(context!!, categoryList)
+            CategoriesMainAdapter(
+                context!!,
+                viewModel,
+                categoryList
+            ) { category: Category, flatPosition: Int, childIndex: Int ->
+
+            }
     }
 
 }

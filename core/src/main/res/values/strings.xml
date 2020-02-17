@@ -13,6 +13,8 @@
     <string name="wishlist">Wishlist</string>
     <string name="cart">Cart</string>
 
+    <string name="suffix_apostrophe">\'s</string>
+
     <string name="success">Success</string>
     <string name="loading_details">Loading detail…</string>
     <string name="error_on_obtain_detail_please_try_later">Error on obtain detail, please try later.</string>
