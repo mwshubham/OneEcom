@@ -1,7 +1,7 @@
 # OneEcom
 OneEcom is Generic Ecommerce Application which will give base to any Ecommerce Application.
 
-## Guidelines (We are/must be strict to)
+### Guidelines (We are/must be strict to)
 
 * Package Name to be start with app.oneecom continued by the library module name:
 e.g. app.oneecom.navigation
