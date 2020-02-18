@@ -57,12 +57,9 @@ class CategoriesViewModel
         }
     }
 
-    fun updateSelectedCategoryName(categoryName: String) {
-        _selectedCategoryName.value = categoryName
-    }
-
-    fun updateSelectedSubCategoryName(subCategoryName: String) {
-        _selectedSubCategoryName.value = subCategoryName
+    fun onSubCategorySelected(parentCategory: Category, category: Category) {
+        _selectedCategoryName.value = parentCategory.name
+        _selectedSubCategoryName.value = category.name
     }
 
     override fun onCleared() {

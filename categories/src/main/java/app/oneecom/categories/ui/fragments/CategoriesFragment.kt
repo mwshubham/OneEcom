@@ -7,6 +7,7 @@ import androidx.navigation.fragment.findNavController
 import app.oneecom.categories.R
 import app.oneecom.categories.databinding.FragmentCategoriesBinding
 import app.oneecom.categories.ui.adapters.CategoriesMainAdapter
+import app.oneecom.categories.ui.adapters.SubSubCategoriesAdapter
 import app.oneecom.categories.ui.viewmodels.CategoriesViewModel
 import app.oneecom.core.extentions.TAG
 import app.oneecom.core.extentions.observe
@@ -78,8 +79,11 @@ class CategoriesFragment : CoreFragment<FragmentCategoriesBinding, CategoriesVie
                 context!!,
                 viewModel,
                 categoryList
-            ) { category: Category, flatPosition: Int, childIndex: Int ->
-
+            ) { category: Category ->
+                context ?: return@CategoriesMainAdapter
+                category.child ?: return@CategoriesMainAdapter
+                viewBinding.rvCategoriesSubSubCategory.adapter =
+                    SubSubCategoriesAdapter(context!!, category.child!!)
             }
     }
 

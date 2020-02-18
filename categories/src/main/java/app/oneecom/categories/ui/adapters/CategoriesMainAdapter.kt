@@ -18,7 +18,7 @@ class CategoriesMainAdapter(
     context: Context,
     private val viewModel: CategoriesViewModel,
     categoryList: List<Category>,
-    private val listener: (Category, Int, Int) -> Unit
+    private val onChildItemClickListener: (Category) -> Unit
 ) :
     ExpandableRecyclerViewAdapter<ItemCategoriesMainVH, ItemSubCategoriesVH>(categoryList) {
 
@@ -64,7 +64,7 @@ class CategoriesMainAdapter(
         group: ExpandableGroup<*>,
         childIndex: Int
     ) {
-        holder.bind(group, flatPosition, childIndex, listener, viewModel)
+        holder.bind(group, childIndex, onChildItemClickListener, viewModel)
     }
 }
 

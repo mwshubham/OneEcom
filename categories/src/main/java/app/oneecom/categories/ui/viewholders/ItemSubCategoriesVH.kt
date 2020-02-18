@@ -11,17 +11,16 @@ class ItemSubCategoriesVH(private val binding: ItemSubCategoryBinding) :
 
     fun bind(
         group: ExpandableGroup<*>,
-        flatPosition: Int,
         childIndex: Int,
-        listener: (Category, Int, Int) -> Unit,
+        onChildItemClickListener: (Category) -> Unit,
         viewModel: CategoriesViewModel
     ) {
         val parentCategory = group as Category
         val category = group.items[childIndex] as Category
         binding.category = category
         binding.root.setOnClickListener {
-            viewModel.updateSelectedCategoryName(parentCategory.name)
-            viewModel.updateSelectedSubCategoryName(category.name)
+            viewModel.onSubCategorySelected(parentCategory, category)
+            onChildItemClickListener(category)
         }
     }
 
