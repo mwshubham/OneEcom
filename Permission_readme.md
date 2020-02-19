@@ -1,4 +1,4 @@
 Permission Desc
 ---------------
 
-!~ android.permission.INTERNET: To fetch images and data from server i.e. to access Internet.
+* `android.permission.INTERNET`: to fetch images and data from server i.e. to access Internet.
