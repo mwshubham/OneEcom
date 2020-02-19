@@ -11,8 +11,8 @@ Purpose and listing of all the modules.
 * [Categories](https://github.com/mwshubham/OpenEcom) - 
 * [Cart](https://github.com/mwshubham/OpenEcom) - 
 * [Profile](https://github.com/mwshubham/OpenEcom) - 
-* [Whishlist](https://github.com/mwshubham/OpenEcom) - 
-* [Navigation](https://github.com/mwshubham/OpenEcom) - Task Redirection via Intent/Actions/DeepLinks
+* [Wishlist](https://github.com/mwshubham/OpenEcom) - 
+* [Navigation](https://github.com/mwshubham/OpenEcom) - Task Redirection via Intent/Actions/DeepLinks.
 * [Address](https://github.com/mwshubham/OpenEcom) - 
 * [Coupons](https://github.com/mwshubham/OpenEcom) - 
 * [More](https://github.com/mwshubham/OpenEcom) - 
