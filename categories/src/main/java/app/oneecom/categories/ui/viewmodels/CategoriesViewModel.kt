@@ -1,11 +1,13 @@
 package app.oneecom.categories.ui.viewmodels
 
+import android.content.Context
 import androidx.annotation.VisibleForTesting
 import androidx.annotation.VisibleForTesting.PRIVATE
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import app.oneecom.categories.R
 import app.oneecom.core.constants.CoreLoggingConstants
 import app.oneecom.core.network.repositiories.GithubRepository
 import app.oneecom.core.network.responses.Category
@@ -29,8 +31,11 @@ class CategoriesViewModel
         get() = _data
 
     private val _selectedCategoryName = MutableLiveData<String>()
+    private val _selectedCategoryNameFormatted = MutableLiveData<String>()
     val selectedCategoryName: LiveData<String>
         get() = _selectedCategoryName
+    val selectedCategoryNameFromatted: LiveData<String>
+        get() = _selectedCategoryNameFormatted
 
     private val _selectedSubCategoryName = MutableLiveData<String>()
     val selectedSubCategoryName: LiveData<String>
@@ -57,8 +62,14 @@ class CategoriesViewModel
         }
     }
 
-    fun onSubCategorySelected(parentCategory: Category, category: Category) {
+    fun onSubCategorySelected(
+        context: Context,
+        parentCategory: Category,
+        category: Category
+    ) {
         _selectedCategoryName.value = parentCategory.name
+        _selectedCategoryNameFormatted.value =
+            parentCategory.name + context.getString(R.string.appos_s)
         _selectedSubCategoryName.value = category.name
     }
 

@@ -19,7 +19,7 @@ class ItemSubCategoriesVH(private val binding: ItemSubCategoryBinding) :
         val category = group.items[childIndex] as Category
         binding.category = category
         binding.root.setOnClickListener {
-            viewModel.onSubCategorySelected(parentCategory, category)
+            viewModel.onSubCategorySelected(it.context, parentCategory, category)
             onChildItemClickListener(category)
         }
     }

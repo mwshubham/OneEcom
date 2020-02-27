@@ -18,4 +18,5 @@
     <string name="success">Success</string>
     <string name="loading_details">Loading detail…</string>
     <string name="error_on_obtain_detail_please_try_later">Error on obtain detail, please try later.</string>
+    <string name="appos_s">\'s</string>
 </resources>

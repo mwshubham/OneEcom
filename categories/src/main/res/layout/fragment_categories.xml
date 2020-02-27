@@ -27,14 +27,13 @@
             app:layout_constraintVertical_bias="0"
             tools:listitem="@layout/item_category_main" />
 
-        <!--todo add apostrophe here-->
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/tv_main_category_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
-            android:text="@{viewModel.selectedCategoryName}"
+            android:text="@{viewModel.selectedCategoryNameFromatted}"
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/rv_categories_main"

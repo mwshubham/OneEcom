@@ -10,6 +10,7 @@
             type="app.oneecom.core.network.responses.Category" />
     </data>
 
+    <!--todo add ripple here.-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
