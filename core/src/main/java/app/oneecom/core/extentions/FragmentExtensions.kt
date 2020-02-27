@@ -23,6 +23,8 @@ import androidx.lifecycle.ViewModelProvider
 /**
  * Generic view model provider.
  *
+ * Not related to @Inject, Currently unused.
+ *
  * @param key The key to use to identify the ViewModel.
  * @param factory Function creates a new instance of the ViewModel.
  * @return A ViewModel that is an instance of the given type [VM].
