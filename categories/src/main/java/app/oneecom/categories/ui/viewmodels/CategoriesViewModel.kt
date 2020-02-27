@@ -12,6 +12,7 @@ import app.oneecom.core.constants.CoreLoggingConstants
 import app.oneecom.core.network.repositiories.GithubRepository
 import app.oneecom.core.network.responses.Category
 import app.oneecom.core.ui.GenericViewState
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import javax.inject.Inject
@@ -32,9 +33,10 @@ class CategoriesViewModel
 
     private val _selectedCategoryName = MutableLiveData<String>()
     private val _selectedCategoryNameFormatted = MutableLiveData<String>()
+    @Suppress("unused")
     val selectedCategoryName: LiveData<String>
         get() = _selectedCategoryName
-    val selectedCategoryNameFromatted: LiveData<String>
+    val selectedCategoryNameFormatted: LiveData<String>
         get() = _selectedCategoryNameFormatted
 
     private val _selectedSubCategoryName = MutableLiveData<String>()
@@ -49,8 +51,10 @@ class CategoriesViewModel
      * Fetch Categories.
      */
     fun getCategories() {
+        Timber.i(CoreLoggingConstants.LOGGING_PLACEHOLDER)
         _state.postValue(GenericViewState.Loading)
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
+            Timber.i(CoreLoggingConstants.LOGGING_PLACEHOLDER)
             try {
                 val result = githubRepository.getCategories()
                 _data.postValue(result.data.results)
