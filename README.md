@@ -29,3 +29,4 @@ This is a simple convention used to look for the reference with ease.
 
 * https://github.com/iammert/AndroidArchitecture
 * https://github.com/VMadalin/kotlin-sample-app
+* https://github.com/android/architecture-components-samples
