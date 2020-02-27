@@ -23,6 +23,7 @@ This is a simple convention used to look for the reference with ease.
 
 ### For MVP, What is not included? We are flexible to:
 * Tablets configuration: We will work on tablet UI/UX in later release/milestone.
+* Localisation: supporting multiple languages will come under a separate release version.
 
 ## Acknowledgement / Important Github project / References
 
