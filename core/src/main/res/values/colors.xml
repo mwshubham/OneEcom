@@ -3,7 +3,7 @@
 
     <!--Theme Colors-->
     <color name="colorPrimary">#2196F3</color>
-    <color name="colorLighPrimary">#BBDEFB</color>
+    <color name="colorLightPrimary">#BBDEFB</color>
     <color name="colorPrimaryDark">#1976D2</color>
     <color name="colorAccent">#FF9800</color>
 
@@ -16,4 +16,5 @@
 
     <!--OverLay Color-->
     <color name="black_overlay">#66000000</color>
+    <color name="color_discount_text">#ff5722</color>
 </resources>

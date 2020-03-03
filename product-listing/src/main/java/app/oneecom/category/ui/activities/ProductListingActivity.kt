@@ -1,8 +1,11 @@
 package app.oneecom.category.ui.activities
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import app.oneecom.category.R
 import app.oneecom.category.databinding.ActivityProductListingBinding
+import app.oneecom.category.ui.adapters.ProductAdapter
 import app.oneecom.category.ui.viewmodels.ProductListingViewModel
 import app.oneecom.core.extentions.TAG
 import app.oneecom.core.extentions.observe
@@ -25,6 +28,9 @@ class ProductListingActivity :
         viewBinding.viewModel = viewModel
 
         progressDialog = ProgressBarDialog(this)
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         viewBinding.viewModel = viewModel
         observe(viewModel.state, ::onViewStateChange)
         observe(viewModel.data, ::onDataChange)
@@ -52,16 +58,26 @@ class ProductListingActivity :
 
     private fun onDataChange(@Suppress("UNUSED_PARAMETER") productList: List<Product>) {
 
-//        viewBinding.rvCategoriesMain.adapter =
-//            CategoriesMainAdapter(
-//                context!!,
-//                viewModel,
-//                categoryList
-//            ) { category: Category ->
-//                context ?: return@CategoriesMainAdapter
-//                category.child ?: return@CategoriesMainAdapter
-//                viewBinding.rvCategoriesSubSubCategory.adapter =
-//                    SubSubCategoriesAdapter(context!!, category.child!!)
-//            }
+        viewBinding.rvProducts.adapter =
+            ProductAdapter(
+                this,
+                productList
+            ) {
+
+            }
     }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.menu_product_listing, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> finish()
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
 }
