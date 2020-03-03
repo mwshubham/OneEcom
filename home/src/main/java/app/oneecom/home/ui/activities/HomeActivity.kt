@@ -36,5 +36,4 @@ class HomeActivity :
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
-
 }

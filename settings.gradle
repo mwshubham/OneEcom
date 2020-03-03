@@ -1,2 +1,3 @@
 include ':app', ':home', ':launcher', ':core', ':navigation', ':localization', ':categories', ':cart', ':profile'
 rootProject.name='OpenEcom'
+include ':product-listing'

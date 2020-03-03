@@ -18,8 +18,10 @@ package app.oneecom.core.network.services
 
 import app.oneecom.core.network.responses.BaseResponse
 import app.oneecom.core.network.responses.Category
+import app.oneecom.core.network.responses.Product
 import retrofit2.http.GET
 import retrofit2.http.Headers
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 /**
@@ -40,7 +42,7 @@ interface GithubService {
     @Headers("Cache-Control: no-cache")
     @GET("master/v1/categories.json")
     suspend fun getCategories(
-        @Query("apikey") apiKey: String,
+        @Query("apiKey") apiKey: String,
         @Query("hash") hash: String,
         @Query("ts") timestamp: String,
         @Query("offset") offset: Int,
@@ -53,12 +55,12 @@ interface GithubService {
      *
      * @return Response for single character resource.
      */
-//    @GET("/v1/public/characters/{id}")
-//    suspend fun getCharacter(
-//        @Path("id") id: Long,
-//        @Query("apikey") apiKey: String,
-//        @Query("hash") hash: String,
-//        @Query("ts") timestamp: String
-//    ): BaseResponse<CharacterResponse>
+    @GET("master/v1/category/{id}.json")
+    suspend fun getCategory(
+        @Path("id") id: Long,
+        @Query("apiKey") apiKey: String,
+        @Query("hash") hash: String,
+        @Query("ts") timestamp: String
+    ): BaseResponse<Product>
 
 }

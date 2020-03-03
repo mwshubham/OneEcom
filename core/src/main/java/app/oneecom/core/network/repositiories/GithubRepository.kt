@@ -21,6 +21,7 @@ import androidx.annotation.VisibleForTesting.PRIVATE
 import app.oneecom.core.extentions.toMD5
 import app.oneecom.core.network.responses.BaseResponse
 import app.oneecom.core.network.responses.Category
+import app.oneecom.core.network.responses.Product
 import app.oneecom.core.network.services.GithubService
 
 // need to pick them from [local.properties] file
@@ -37,21 +38,6 @@ class GithubRepository(
 ) {
 
     /**
-     * Get all info of Marvel character.
-     *
-     * @return Response for single character resource.
-     */
-//    suspend fun getCharacter(id: Long): BaseResponse<CharacterResponse> {
-//        val timestamp = System.currentTimeMillis().toString()
-//        return service.getCharacter(
-//            id = id,
-//            apiKey = API_PUBLIC_KEY,
-//            hash = generateApiHash(timestamp),
-//            timestamp = timestamp
-//        )
-//    }
-
-    /**
      * Get all Categories by paged.
      *
      * @param offset Skip the specified number of resources in the result set.
@@ -66,6 +52,21 @@ class GithubRepository(
             timestamp = timestamp,
             offset = offset,
             limit = limit
+        )
+    }
+
+    /**
+     * Get all details (including products) of specified category.
+     *
+     * @return Response for single category resource.
+     */
+    suspend fun getCategory(id: Long): BaseResponse<Product> {
+        val timestamp = System.currentTimeMillis().toString()
+        return service.getCategory(
+            id = id,
+            apiKey = API_PUBLIC_KEY,
+            hash = generateApiHash(timestamp),
+            timestamp = timestamp
         )
     }
 

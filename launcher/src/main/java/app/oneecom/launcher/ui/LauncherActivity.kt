@@ -6,7 +6,7 @@ import app.oneecom.core.extentions.TAG
 import app.oneecom.core.ui.CoreActivity
 import app.oneecom.launcher.R
 import app.oneecom.launcher.databinding.ActivityLauncherBinding
-import app.oneecom.navigation.HomeActions
+import app.oneecom.navigation.ProductListingActions
 
 class LauncherActivity :
     CoreActivity<ActivityLauncherBinding, LauncherViewModel>(R.layout.activity_launcher) {
@@ -19,11 +19,17 @@ class LauncherActivity :
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        // todo: only for testing...
         handler.postDelayed(
             {
-                startActivity(HomeActions.openHomePageActivity(this))
-            }, 3000
+                startActivity(ProductListingActions.getProductListingActivityIntent(this))
+            }, 1000
         )
+//        handler.postDelayed(
+//            {
+//                startActivity(HomeActions.getHomePageActivityIntent(this))
+//            }, 3000
+//        )
     }
 }
 

@@ -24,7 +24,6 @@ class CategoriesFragment : CoreFragment<FragmentCategoriesBinding, CategoriesVie
 
     @Suppress("MemberVisibilityCanBePrivate")
     lateinit var progressDialog: ProgressBarDialog
-    private lateinit var categoryList: List<Category>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,8 +71,6 @@ class CategoriesFragment : CoreFragment<FragmentCategoriesBinding, CategoriesVie
     }
 
     private fun onDataChange(@Suppress("UNUSED_PARAMETER") categoryList: List<Category>) {
-        this.categoryList = categoryList
-
         viewBinding.rvCategoriesMain.adapter =
             CategoriesMainAdapter(
                 context!!,
