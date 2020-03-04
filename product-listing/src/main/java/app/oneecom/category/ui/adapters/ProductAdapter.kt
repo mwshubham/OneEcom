@@ -10,7 +10,7 @@ import app.oneecom.category.ui.viewholders.ItemProductVH
 import app.oneecom.core.network.responses.Product
 
 class ProductAdapter(
-    private val context: Context,
+    context: Context,
     private val productList: List<Product>,
     private val onItemClick: (Product) -> Unit
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {

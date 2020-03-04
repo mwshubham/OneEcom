@@ -9,12 +9,14 @@ import app.oneecom.categories.databinding.FragmentCategoriesBinding
 import app.oneecom.categories.ui.adapters.CategoriesMainAdapter
 import app.oneecom.categories.ui.adapters.SubSubCategoriesAdapter
 import app.oneecom.categories.ui.viewmodels.CategoriesViewModel
+import app.oneecom.core.constants.CoreBundleConstants
 import app.oneecom.core.extentions.TAG
 import app.oneecom.core.extentions.observe
 import app.oneecom.core.network.responses.Category
 import app.oneecom.core.ui.CoreFragment
 import app.oneecom.core.ui.GenericViewState
 import app.oneecom.core.ui.views.ProgressBarDialog
+import app.oneecom.navigation.ProductListingActions
 
 class CategoriesFragment : CoreFragment<FragmentCategoriesBinding, CategoriesViewModel>(
     R.layout.fragment_categories
@@ -80,7 +82,14 @@ class CategoriesFragment : CoreFragment<FragmentCategoriesBinding, CategoriesVie
                 context ?: return@CategoriesMainAdapter
                 category.child ?: return@CategoriesMainAdapter
                 viewBinding.rvCategoriesSubSubCategory.adapter =
-                    SubSubCategoriesAdapter(context!!, category.child!!)
+                    SubSubCategoriesAdapter(context!!, category.child!!) {
+                        context ?: return@SubSubCategoriesAdapter
+                        startActivity(
+                            ProductListingActions
+                                .getProductListingActivityIntent(context!!)
+                                .putExtra(CoreBundleConstants.KEY_CATEGORY, it)
+                        )
+                    }
             }
     }
 

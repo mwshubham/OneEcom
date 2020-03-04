@@ -7,8 +7,10 @@ import app.oneecom.category.R
 import app.oneecom.category.databinding.ActivityProductListingBinding
 import app.oneecom.category.ui.adapters.ProductAdapter
 import app.oneecom.category.ui.viewmodels.ProductListingViewModel
+import app.oneecom.core.constants.CoreBundleConstants
 import app.oneecom.core.extentions.TAG
 import app.oneecom.core.extentions.observe
+import app.oneecom.core.network.responses.Category
 import app.oneecom.core.network.responses.Product
 import app.oneecom.core.ui.CoreActivity
 import app.oneecom.core.ui.GenericViewState
@@ -19,6 +21,10 @@ class ProductListingActivity :
 
     override val logTAG: String
         get() = TAG
+
+    @Suppress("unused")
+    private val category: Category
+        get() = intent!!.getParcelableExtra(CoreBundleConstants.KEY_CATEGORY)!!
 
     @Suppress("MemberVisibilityCanBePrivate")
     lateinit var progressDialog: ProgressBarDialog

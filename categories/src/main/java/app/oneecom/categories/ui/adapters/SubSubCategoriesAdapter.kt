@@ -11,7 +11,11 @@ import app.oneecom.core.constants.CoreLoggingConstants
 import app.oneecom.core.network.responses.Category
 import timber.log.Timber
 
-class SubSubCategoriesAdapter(context: Context, val categories: List<Category>) :
+class SubSubCategoriesAdapter(
+    context: Context,
+    val categories: List<Category>,
+    private val onItemClickListener: (Category) -> Unit
+) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val inflater: LayoutInflater = LayoutInflater.from(context)
 
@@ -34,7 +38,7 @@ class SubSubCategoriesAdapter(context: Context, val categories: List<Category>) 
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
-            is ItemSubSubCategoriesVH -> holder.bind(categories[position])
+            is ItemSubSubCategoriesVH -> holder.bind(categories[position], onItemClickListener)
         }
     }
 }
