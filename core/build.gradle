@@ -99,6 +99,10 @@ dependencies {
     // Multidex
     implementation "androidx.multidex:multidex:$multidex_version"
 
+    // chuck
+    debugImplementation 'com.readystatesoftware.chuck:library:1.1.0'
+    releaseImplementation 'com.readystatesoftware.chuck:library-no-op:1.1.0'
+
     // Testing...
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'

@@ -10,3 +10,4 @@
 * [logging-interceptor](https://github.com/square/okhttp/tree/master/okhttp-logging-interceptor): An OkHttp interceptor which logs HTTP request and response data.
 * [expandable-recycler-view](https://github.com/thoughtbot/expandable-recycler-view): Custom Android RecyclerViewAdapters that collapse and expand.
 * [CircleImageView](https://github.com/hdodenhof/CircleImageView): A circular ImageView for Android.
+* [chuck](https://github.com/jgilfelt/chuck): An in-app HTTP inspector for Android OkHttp clients.

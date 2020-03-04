@@ -16,10 +16,12 @@
 
 package app.oneecom.core.di.modules
 
+import android.content.Context
 import app.oneecom.core.BuildConfig
 import app.oneecom.core.network.repositiories.GithubRepository
 import app.oneecom.core.network.services.GithubService
 import com.facebook.stetho.okhttp3.StethoInterceptor
+import com.readystatesoftware.chuck.ChuckInterceptor
 import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
@@ -50,6 +52,30 @@ class NetworkModule {
     }
 
     /**
+     * Create a provider method binding for [StethoInterceptor].
+     *
+     * @return Instance of stetho interceptor.
+     * @see Provides
+     */
+    @Singleton
+    @Provides
+    fun provideStethoInterceptor(): StethoInterceptor {
+        return StethoInterceptor()
+    }
+
+    /**
+     * Create a provider method binding for [ChuckInterceptor].
+     *
+     * @return Instance of chuck interceptor.
+     * @see Provides
+     */
+//    @Singleton
+//    @Provides
+//    fun provideChuckInterceptor(context: Context): ChuckInterceptor {
+//        return ChuckInterceptor(context)
+//    }
+
+    /**
      * Create a provider method binding for [OkHttpClient].
      *
      * @return Instance of http client.
@@ -57,11 +83,17 @@ class NetworkModule {
      */
     @Singleton
     @Provides
-    fun provideHttpClient(interceptor: HttpLoggingInterceptor): OkHttpClient {
+    fun provideHttpClient(
+        context: Context,
+        httpLoggingInterceptor: HttpLoggingInterceptor,
+//        chuckInterceptor: ChuckInterceptor,
+        stethoInterceptor: StethoInterceptor
+    ): OkHttpClient {
         val clientBuilder = OkHttpClient.Builder()
         if (BuildConfig.DEBUG) {
-            clientBuilder.addInterceptor(interceptor)
-            clientBuilder.addNetworkInterceptor(StethoInterceptor())
+            clientBuilder.addInterceptor(httpLoggingInterceptor)
+            clientBuilder.addInterceptor(ChuckInterceptor(context))
+            clientBuilder.addNetworkInterceptor(stethoInterceptor)
         }
         return clientBuilder.build()
     }
@@ -89,7 +121,7 @@ class NetworkModule {
      */
     @Singleton
     @Provides
-    fun provideGithubservice(retrofit: Retrofit): GithubService = retrofit
+    fun provideGithubService(retrofit: Retrofit): GithubService = retrofit
         .create(GithubService::class.java)
 
     /**
