@@ -27,7 +27,7 @@
             app:layout_constraintVertical_bias="0"
             tools:listitem="@layout/item_category_main" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_main_category_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -40,7 +40,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="WOMEN's" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_sub_category_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

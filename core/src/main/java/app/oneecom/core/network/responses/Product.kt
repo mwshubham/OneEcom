@@ -25,4 +25,8 @@ data class Product(
     val imageUrl: String,
     @Json(name = "category_id")
     val categoryId: Long
-)
+) {
+    fun formattedBasePrice() = basePrice.toInt().toString()
+    fun formattedDiscountPrice() = discountPrice?.toInt().toString()
+    fun formattedDiscountPercentage() = discountPercentage?.toInt().toString()
+}

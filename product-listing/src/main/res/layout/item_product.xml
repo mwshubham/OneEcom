@@ -13,7 +13,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="16dp">
+        android:paddingBottom="10dp">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/iv_image"
@@ -26,13 +26,14 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:src="@tools:sample/avatars" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_name"
+            style="?textAppearanceSubtitle1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
+            android:layout_marginStart="10dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="10dp"
             android:ellipsize="end"
             android:lines="1"
             android:maxLines="1"
@@ -47,13 +48,14 @@
             android:id="@+id/iv_bookmark"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginEnd="16dp"
+            android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/tv_name"
             app:srcCompat="@drawable/ic_bookmark_border_black_24dp" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_short_desc"
+            style="?textAppearanceCaption"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ellipsize="end"
@@ -66,39 +68,43 @@
             app:layout_constraintTop_toBottomOf="@id/tv_name"
             tools:text="Women Printed Kurta Set" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_discounted_price"
+            style="?textAppearanceBody2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{product.discountPrice.toString()}"
-            android:textSize="16sp"
+            android:text="@{product.formattedDiscountPrice()}"
             app:fontFamily="@font/roboto_bold"
             app:layout_constraintStart_toStartOf="@id/tv_name"
             app:layout_constraintTop_toBottomOf="@id/tv_short_desc"
             tools:text="\u20B9524" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_base_price"
+            style="?textAppearanceBody2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:text="@{`` + product.basePrice}"
+            android:layout_marginStart="4dp"
+            android:text="@{product.formattedBasePrice()}"
+            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@id/tv_discounted_price"
             app:layout_constraintStart_toEndOf="@id/tv_discounted_price"
             app:layout_constraintTop_toTopOf="@id/tv_discounted_price"
             tools:text="\u20B91224" />
 
-        <androidx.appcompat.widget.AppCompatTextView
+        <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_discounted_percentage"
+            style="?textAppearanceBody2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
-            android:text="@{`` + product.discountPercentage}"
+            android:layout_marginStart="2dp"
+            android:text="@{product.formattedDiscountPercentage()}"
+            android:textColor="@color/color_discount_text"
+            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@id/tv_discounted_price"
             app:layout_constraintStart_toEndOf="@id/tv_base_price"
             app:layout_constraintTop_toTopOf="@id/tv_discounted_price"
-            tools:text="44% OFF"
-            tools:textColor="@color/color_discount_text" />
+            tools:text="44% OFF" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

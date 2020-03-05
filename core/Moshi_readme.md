@@ -1,13 +1,10 @@
-Implementation of Moshi
------------------------
+# Moshi Description
 
-~ We will initialize each variable with null and access it via custom getter handling the 
-nullability and other issues which might cause application to crash.
-~ all the variable be prefixed with '_' and getter and setter to be made to avoid NPEs KNPEs
+* We will initialize each variable with null and access it via custom getter handling the nullability and other issues which might cause application to crash.
 
-------
-SAMPLE
-------
+* all the variable be prefixed with '_' and getter and setter to be made to avoid NPEs KNPEs
+
+## SAMPLE
 
 ------
 test.json
