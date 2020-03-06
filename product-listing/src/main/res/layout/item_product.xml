@@ -13,18 +13,21 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingBottom="10dp">
+        android:background="?android:attr/selectableItemBackground"
+        android:paddingBottom="10dp"
+        tools:layout_width="200dp">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/iv_image"
             android:layout_width="match_parent"
             android:layout_height="200dp"
+            android:padding="16dp"
             android:scaleType="fitCenter"
             app:imageUrl="@{product.imageUrl}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@tools:sample/avatars" />
+            tools:src="@sample/images" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_name"
@@ -44,18 +47,17 @@
             app:layout_constraintTop_toBottomOf="@id/iv_image"
             tools:text="Kurta Set" />
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <androidx.appcompat.widget.AppCompatToggleButton
             android:id="@+id/iv_bookmark"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            style="@style/BaseBookmarkToggleButtonStyle"
             android:layout_marginEnd="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@id/tv_name"
-            app:srcCompat="@drawable/ic_bookmark_border_black_24dp" />
+            tools:checked="false" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_short_desc"
-            style="?textAppearanceCaption"
+            style="@style/BaseTextAppearanceCaptionStyle.ShortDescription"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:ellipsize="end"
@@ -70,23 +72,17 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_discounted_price"
-            style="?textAppearanceBody2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/BaseTextAppearanceBody2Style.DiscountPrice"
             android:text="@{product.formattedDiscountPrice()}"
-            app:fontFamily="@font/roboto_bold"
             app:layout_constraintStart_toStartOf="@id/tv_name"
             app:layout_constraintTop_toBottomOf="@id/tv_short_desc"
             tools:text="\u20B9524" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_base_price"
-            style="?textAppearanceBody2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/BaseTextAppearanceSubTitle2Style.BasePrice"
             android:layout_marginStart="4dp"
             android:text="@{product.formattedBasePrice()}"
-            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@id/tv_discounted_price"
             app:layout_constraintStart_toEndOf="@id/tv_discounted_price"
             app:layout_constraintTop_toTopOf="@id/tv_discounted_price"
@@ -94,13 +90,9 @@
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/tv_discounted_percentage"
-            style="?textAppearanceBody2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/BaseTextAppearanceBody2Style.DiscountPercentage"
             android:layout_marginStart="2dp"
             android:text="@{product.formattedDiscountPercentage()}"
-            android:textColor="@color/color_discount_text"
-            android:textSize="12sp"
             app:layout_constraintBottom_toBottomOf="@id/tv_discounted_price"
             app:layout_constraintStart_toEndOf="@id/tv_base_price"
             app:layout_constraintTop_toTopOf="@id/tv_discounted_price"

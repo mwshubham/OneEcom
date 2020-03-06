@@ -1,5 +1,8 @@
 package app.oneecom.core.network.responses
 
+import app.oneecom.core.R
+import app.oneecom.core.constants.CoreStringResConstants
+import app.oneecom.core.extentions.getString
 import com.squareup.moshi.Json
 
 //"id": 1006,
@@ -26,7 +29,15 @@ data class Product(
     @Json(name = "category_id")
     val categoryId: Long
 ) {
-    fun formattedBasePrice() = basePrice.toInt().toString()
-    fun formattedDiscountPrice() = discountPrice?.toInt().toString()
-    fun formattedDiscountPercentage() = discountPercentage?.toInt().toString()
+    fun formattedBasePrice(): String =
+        getString(CoreStringResConstants.ID_UTF_RUPPEE) + basePrice.toInt().toString()
+
+    fun formattedDiscountPrice(): String? =
+        discountPrice?.let {
+            getString(CoreStringResConstants.ID_UTF_RUPPEE) + it.toInt().toString()
+        }
+
+    fun formattedDiscountPercentage(): String? = discountPercentage?.let {
+        "${it.toInt()}% ${getString(R.string.off)}"
+    }
 }
