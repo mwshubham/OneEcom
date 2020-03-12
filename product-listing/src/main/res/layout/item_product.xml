@@ -86,6 +86,7 @@
             app:layout_constraintBottom_toBottomOf="@id/tv_discounted_price"
             app:layout_constraintStart_toEndOf="@id/tv_discounted_price"
             app:layout_constraintTop_toTopOf="@id/tv_discounted_price"
+            app:strike="@{true}"
             tools:text="\u20B91224" />
 
         <com.google.android.material.textview.MaterialTextView
