@@ -103,6 +103,12 @@ dependencies {
     debugImplementation 'com.readystatesoftware.chuck:library:1.1.0'
     releaseImplementation 'com.readystatesoftware.chuck:library-no-op:1.1.0'
 
+    // facebook flipper
+    debugImplementation 'com.facebook.flipper:flipper:0.35.0'
+    debugImplementation 'com.facebook.soloader:soloader:0.8.2'
+
+    releaseImplementation 'com.facebook.flipper:flipper-noop:0.35.0'
+
     // Testing...
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'

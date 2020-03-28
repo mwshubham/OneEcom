@@ -12,6 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/BaseAppTheme.AppTheme">
 
+        <activity
+            android:name="com.facebook.flipper.android.diagnostics.FlipperDiagnosticActivity"
+            android:exported="true" />
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
